@@ -11,7 +11,7 @@ Este proyecto utiliza "Remix" como framework para crear aplicaciones web rápida
    - [Rutas Dinámicas](#3-rutas-dinámicas)
    - [Rutas Anidadas](#4-rutas-anidadas)
    - [Componente de Salida (Outlet)](#5-componente-de-salida)
-3. [Recursos Adicionales](#recursos-adicionales)
+
 
 ---
 
