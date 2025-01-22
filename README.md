@@ -4,7 +4,7 @@ Este proyecto utiliza "Remix" como framework para crear aplicaciones web rápida
 
 ## Índice
 
-1. [Instalación](#instalación)
+1. [Instalación](#Instalación)
 2. [Conceptos Principales de Remix](#conceptos-principales-de-remix)
    - [Link](#1-link)
    - [Loader](#2-loader)
@@ -15,7 +15,7 @@ Este proyecto utiliza "Remix" como framework para crear aplicaciones web rápida
 
 ---
 
-#Instalación
+## Instalación
 
 1. Clona el repositorio en tu máquina local: 
 git clone <URL_DEL_REPOSITORIO>
@@ -30,7 +30,7 @@ npm install
 npm run dev
 Abre el navegador y accede a http://localhost:3000 para ver la aplicación en funcionamiento.
 
-## Conceptos Principales Remix 
+## Conceptos Principales  de  Remix 
 
 ### 1. Link 
  El componente llamado Link, es utilizado para generar una navegación interna de la aplicación sin necesidad de que se recargue toda la aplicación. Lo que hace que el rendimiento sea mucho mejor y también la UX (experiencia de usuario) al cargar los datos que se le esten solicitando en la nueva vista. 
