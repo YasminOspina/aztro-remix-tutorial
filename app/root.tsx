@@ -1,4 +1,4 @@
-import { json } from "@remix-run/node";
+import { json, redirect } from "@remix-run/node";
 import type { LinksFunction } from "@remix-run/node";
 import appStylesHref from "./app.css?url";
 
@@ -6,14 +6,16 @@ import {
   Form,
   Link,
   Links,
+  NavLink
   Meta,
   Outlet,
   Scripts,
   ScrollRestoration,
   useLoaderData,
+  useNavigation,
 } from "@remix-run/react";
 
-import { getContacts } from "./data";
+import { createEmptyContact, getContacts } from "./data";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: appStylesHref },
@@ -23,6 +25,11 @@ export const loader = async () => {
   const contacts = await getContacts();
   return json({ contacts });
 };
+
+export const action= async () => {
+  const contact = await createEmptyContact();
+  return redirect ( `/contacts/${contact.id}/edit`, { status:301 });
+}
 
 export default function App() {
   const { contacts } = useLoaderData();
@@ -61,18 +68,18 @@ export default function App() {
               <ul>
                 {contacts.map((contact) => (
                   <li key={contact.id}>
-                    <Link to={`contacts/${contact.id}`}>
-                      {contact.first || contact.last ? (
-                        <>
-                          {contact.first} {contact.last}
-                        </>
-                      ) : (
-                        <i>No Name</i>
-                      )}{" "}
-                      {contact.favorite ? (
-                        <span>★</span>
-                      ) : null}
-                    </Link>
+                    <NavLink
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "active"
+                      : isPending
+                      ? "pending"
+                      : ""
+                  }
+                  to={`contacts/${contact.id}`}
+                >
+                  {/* existing elements */}
+                </NavLink>
                   </li>
                 ))}
               </ul>
