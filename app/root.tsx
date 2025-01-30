@@ -6,7 +6,7 @@ import {
   Form,
   Link,
   Links,
-  NavLink
+  NavLink,
   Meta,
   Outlet,
   Scripts,
@@ -32,7 +32,9 @@ export const action= async () => {
 }
 
 export default function App() {
-  const { contacts } = useLoaderData();
+  const { contacts } = useLoaderData<typeof loader>();
+  const navigation = useNavigation();
+
 
   return (
     <html lang="en">
@@ -76,10 +78,20 @@ export default function App() {
                       ? "pending"
                       : ""
                   }
-                  to={`contacts/${contact.id}`}
-                >
-                  {/* existing elements */}
-                </NavLink>
+                  to={`contacts/${contact.id}`}>
+                    <Link to={`contacts/${contact.id}`}>
+                      {contact.first || contact.last ? (
+                        <>
+                          {contact.first} {contact.last}
+                        </>
+                      ) : (
+                        <i>No Name</i>
+                      )}{" "}
+                      {contact.favorite ? (
+                        <span>★</span>
+                      ) : null}
+                    </Link>
+                    </NavLink>
                   </li>
                 ))}
               </ul>
@@ -90,7 +102,9 @@ export default function App() {
             )}
           </nav>
         </div>
-        <div  style={{padding:15}} id="content">
+        <div  className={
+            navigation.state === "loading" ? "loading" : ""
+          } style={{padding:15}} id="content">
           <Outlet />
         </div>
         

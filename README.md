@@ -128,7 +128,7 @@ invariant(usuario, "El prop 'usuario' es obligatorio");
 
 return (
 <div>
-<h1>Nombre: {usuario.nombre}</h1>
+<h1>Nombre:{usuario.nombre}</h1>
 </div>
 );
 }
