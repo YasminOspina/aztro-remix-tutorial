@@ -67,7 +67,7 @@ una parte en Remix para manejar rutas anidadas. Funciona como un "placeholder" d
 
 Un loader es una función del servidor que se utiliza para cargar datos antes de que se renderice una página o un componente. Esto permite que los datos siempre estén disponibles al momento de cargar la página. Su objetivo principal es cargar los datos necesarios para que el componente funcione. Por ejemplo, si se necesita mostrar una lista de usuarios, el loader se encargará de hacer una llamada a la base de datos o a una API para obtener los datos. Los louders se ejecutan únicamente en el servidor, por lo que usan variables de entorno y hacer conexiones seguras a bases de datos.
 
-### 6. useLoaderData
+### 6. UseLoaderData
 
 Es un hook que permite acceder a los datos que un loader ha cargado para un componente en una ruta de Remix. Este hook da acceso a los datos que devuelve el loader de una ruta específica. Remix optimiza la carga de datos, el cúal separa la lógica del servidor y del cliente, pero el hook permite consumir esos datos de manera declarativa en el cliente.
 
@@ -80,11 +80,11 @@ Propósito - Consumir datos cargador por un loader.
 Cuando se Ejecuta - Al cargar la página o ruta (GET).
 Uso típico - Mostrar datos iniciales(ejemplo:lista de usuarios).
 
-### 7. action
+### 7. Action
 
 Una acción(action) es una función que se ejecuta en respuesta a una solicitud POST,PUT,PATCH o DELETE en Remix. En otras palabras, es útil cuando se necesita manejar datos que envía el usuario desde un formulario, como al enviar información o realizar una operación en el servidor.
 
-#### 8. useActionData
+#### 8. UseActionData
 
 Es un hook que sirve para acceder a los datos que devuelve una acción (action) en una ruta. Es decir, permite acceder a los datos devueltos por la función action después de que se ejecuta. Por ejemplo se puede usar para mostrar errores de validación o mensajes de éxito tras enviar un formulario.
 
@@ -97,7 +97,7 @@ Propósito - Consumir datos devueltos por una ación
 Cuando se Ejecuta - Al enviar datos desde el cliente(POST,etc)
 Uso típico - Manejar respuestas de formularios o acciones en el servidor.
 
-### 9. invariant
+### 9. Invariant
 
 Es una función que se utiliza para asegurar que ciertas condiciones se cumplan en el código. Se usa como una Forma de validación en tiempo de ejecución, donde se puede verificar que una condición sea verdadera y, si no lo es, lanzar un error(generalmente con un mensaje explicativo).
 
